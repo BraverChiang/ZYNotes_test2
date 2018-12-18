@@ -1,0 +1,114 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Next: <a href='Linux @0 自定义  Terminal.html'>Linux @0 自定义: Terminal</a>, Previous: <a href='Linux @@@关于GitHub.html'>Linux @@@关于GitHub</a>, Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>Linux @0 系统基础</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><p><a href="https://quip.com/KgZYAgHjhSb2#GRUACAgUBZF">以前的笔记Quip</a></p>
+<hr>
+<h1>1. 系统目录, 挂载.</h1>
+<p><img src="resources/7796E45BC6ED85A3150285EA302E2A13.jpg" alt="IMAGE" width="434" height="519"><br>
+<code>mkdir		/mnt/cdroom</code>		建立：挂载点<br>
+<code>mount	/dev/cdroom	/mnt/cdroom</code>	挂载：光盘到挂载点</p>
+<hr>
+<h1>2. 系统重要文件, 文本编辑.</h1>
+<h2>2.1 重要文件:<code>/etc/zshrc</code>, <code>~/.bash_profile</code>, <code>~/.zshrc</code> 等等</h2>
+<p><code>~/.bash_profile</code> 打开Terminal时执行.<br>
+<code>~/.zshrc</code> 切换子Shell时执行, 例如输入zsh, bash, <strong>这个文件用的最多</strong> To make aliases Permanent<br>
+<code>/etc/zshrc</code> 所有用户的配置. To make aliases Global</p>
+<p>When bash is invoked as an interactive login shell, or as a non-interactive shell with<br>
+the --login option,<br>
+<strong>it first reads and executes commands from the file /etc/profile, if that file exists.<br>
+After reading that file, it looks for ~/.bash_profile, ~/.bash_login, and ~/.profile, in that order, and reads and executes commands from the first one that exists and is readable.</strong><br>
+The --noprofile option may be used when the shell is started to inhibit this behavior.</p>
+<p><img src="resources/EAB43453209A35B9C7FB4F0E2786D3C6.jpg" alt="IMAGE" width="890" height="552"></p>
+<h2>2.2 文本编辑工具有: <code>vim</code> <code>vi</code> <code>emacs</code> <code>nano</code>等等</h2>
+<p>编辑最高权限文件: <code>sudo vim /etc/zshrc</code></p>
+<ol>
+<li>vim打开文本: <code>vim ~/.bashrc</code> 或者 <code>vim ~/.zshrc</code> bash/zsh资源 内涵环境变量</li>
+<li>vim编辑文本: 按下 <code>i</code> 开始编辑. 按下 <code>esc</code> 退出编辑</li>
+<li>vim保存文本: 底行输入 <code>:wq</code> 保存并退出</li>
+<li>保存好资源: source ~/.bashrc<br>
+打开文件: <code>open Podfile</code> 或者 <code>sublime open Podfile</code>???</li>
+</ol>
+<hr>
+<h1>3 环境变量</h1>
+<h2>3.1 主要变量介绍</h2>
+<p>What are Environment Variables?</p>
+<ul>
+<li>Dynamic values</li>
+<li>Exist in every operating system</li>
+<li>Can be created, edited, saved and deleted</li>
+<li>Gives information about the system behavior</li>
+<li>Change the way software/programs behaver</li>
+</ul>
+<p>最主要的环境变量有:<br>
+<code>env</code> 显示所有环境变量<br>
+<code>PATH</code> 包括一系列目录, 目录里有系统所要执行的文件. This variable contains a list of directories in which your system looks for executable files.<br>
+<code>USER</code> 用户名<br>
+<code>HOME</code> 默认家目录<br>
+<code>EDITOR</code> 一个指向程序的路径. path to the program which edits the content of files<br>
+<code>UID</code> 用户唯一ID<br>
+<code>TERM</code> 默认终端<br>
+<code>SHELL</code> 在使用中的Shell<br>
+<code>$LANG</code> 表示全局语言设置</p>
+<h2>3.2 变量修改</h2>
+<h3>修改</h3>
+<p>修改(每次命令前面的提示符): <code>PS1="custom~ "</code><br>
+修改(普通变量): <code>NEWVAR=123abc</code><br>
+打印变量对应值: <code>echo $NEWVAR</code> 结果是:123abc<br>
+取消变量: <code>unset NEWVAR</code><br>
+设置某个环境变量的值: <code>export NEWVAR</code><br>
+编辑添加一个新的环境路径<code>/Users/BC</code>: <code>export PATH=$PATH:/Users/BC</code></p>
+<h3>查看</h3>
+<p>打印当前环境路径: <code>echo $PATH</code>, <code>echo $HOME</code>, <code>echo $USER</code><br>
+打印字符串:   <code>echo -e "abcdefg"</code></p>
+<hr>
+<h1>四. 关于命令Command</h1>
+<p><img src="resources/82019BCC7D7E40D3FF6F9A4BAD1CAC3F.jpg" alt="IMAGE" width="985" height="46"></p>
+<h2>4.1 命令本身</h2>
+<p>查看所有历史命令: <code>history</code></p>
+<pre><code>    常用参数: -c 清楚所有命令  
+             -w 把缓存中的历史命令写入 `~/.bash_history`
+</code></pre>
+<p>查看命令内部的详细情况: <code>man orderName</code> 或者 <code>info orderName</code> 最好是<code>orderName --help</code></p>
+<h2>4.2 别名</h2>
+<p>查看命令真实位置: <code>which orderName</code><br>
+查看命令的别名位置: <code>whereis orderName</code></p>
+<p>查看现有的别名: <code>alias</code><br>
+声明新别名: <code>alias aliName="sudo comandName and optionsName"</code><br>
+删除别名: <code>unalias aliName</code></p>
+<h2>4.3 链接</h2>
+<p>做链接(从真实指令到当前目录python): <code>ln -s ~/anaconda/bin/py2 python</code><br>
+做链接(从正式指令到subl): <code>ln -s ~/.sublime/sublime /bin/subl</code></p>
+</div></div>
+      <script>document.body.onkeyup = function(e) {
+if (e.keyCode === 39) window.location.href = 'Linux @0 自定义  Terminal.html';
+if (e.keyCode === 37) window.location.href = 'Linux @@@关于GitHub.html';
+}</script>
+    </body>
+    </html>
+  
